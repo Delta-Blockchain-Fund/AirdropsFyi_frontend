@@ -1,0 +1,68 @@
+.popup
+    background-color: #fff
+    border-radius: 24px
+    min-width: 200px
+    max-width: 500px
+    padding: 48px 36px
+    text-align: center
+    position: fixed
+    top: calc(50% + 60px)
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    z-index: 1001
+
+    .cta
+        padding: 24px 40px
+        width: 100%
+        background-color: #0077FF
+        border-radius: 16px
+        margin-top: 48px
+        color: #fff
+        font-size: 16px
+        font-weight: 700
+
+    .message
+        line-height: 150%
+
+    .closeIcon
+        position: absolute
+        right: 16px
+        top: 16px
+        width: 32px
+        height: 32px
+        border-radius: 8px
+        box-shadow: 0px 4px 4px #00358624
+        cursor: pointer
+
+        &:before
+            content: ''
+            width: 16px
+            height: 2px
+            background: #00000054
+            transform: rotateZ(45deg)
+
+        &:after
+            content: ''
+            position: absolute
+            right: 8px
+            width: 16px
+            height: 2px
+            background: #00000054
+            transform: rotateZ(135deg)
+
+.overlay
+    position: fixed
+    left: 0
+    top: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0,0.7)
+    z-index: 1000
+
+@media screen and (min-width: 768px)
+    .popup
+        top: 50%
+
+        .cta
+            font-size: 18px
+            padding: 24px 80px

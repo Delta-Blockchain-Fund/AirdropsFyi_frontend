@@ -1,0 +1,67 @@
+.emailForm
+    background-color: rgba(225,233,245,0.6)
+    border-radius: 32px
+    width: calc(100% - 64px)
+    box-sizing: border-box
+    padding: 16px
+    margin-bottom: 136px
+    max-width: 500px !important
+    box-shadow: 0 20px 20px 10px #DFEAFF
+
+.field
+    display: flex
+    align-items: flex-start !important
+    width: 100%
+    margin: 0 0 16px
+    box-sizing: border-box
+    position: relative
+
+    input
+        width: calc(100% - 48px)
+        padding: 48px 24px 16px
+        border-radius: 24px
+        background-color: #fff
+
+        &:focus,
+        &:focus-visible,
+        &:focus-within
+            box-shadow: 0 0 0 1px #0077FF
+
+        &:focus + label,
+        &:focus-visible + label,
+        &:focus-within + label
+            color: #0077FF
+
+        &::placeholder
+            color: #afafaf
+
+    label
+        position: absolute
+        font-size: 16px
+        top: 16px
+        left: 24px
+
+.button
+    background: #0077FF
+    border-radius: 24px
+    opacity: 1
+    padding: 24px 32px
+    color: white
+    font-weight: 600
+    width: 100%
+    font-size: 18px
+    transition: all .2s
+
+    &:hover
+        transform: scale3d(1.01, 1.01, 1.01)
+        transition: all .2s
+
+@media screen and (min-width: 768px)
+    .field
+        input
+            width: calc(100% - 80px)
+            padding: 56px 40px 24px
+
+        label
+            top: 24px
+            left: 40px

@@ -1,0 +1,126 @@
+.form
+    background-color: rgba(225,233,245,0.6)
+    border-radius: 32px
+    padding: 16px
+    width: 100%
+    max-width: 320px !important
+    margin-bottom: 72px
+
+    input
+        width: 50%
+        background-color: #FFFFFF
+        border-radius: 24px
+        padding: 36px 24px 16px
+
+        &::placeholder
+            color: rgba(0,0,0,0.5)
+
+        & + label
+            position: absolute
+            font-size: 12px
+            line-height: 200%
+            font-weight: 600
+
+        &:focus,
+        &:focus-visible,
+        &:focus-within
+            outline: 2px solid #0077FF
+
+            & + label
+                color: #0077FF
+
+.title
+    font-size: 24px
+    line-height: 150%
+    padding: 0 24px 24px
+    margin-right: auto
+
+.inputWrapper,
+.fileWrapper
+    margin-bottom: 10px
+    position: relative
+    width: 100%
+
+    input
+        width: calc(100% - 48px)
+
+    label
+        top: 8px
+        left: 24px !important
+.row
+    flex-direction: row !important
+    margin-bottom: 10px
+    position: relative
+    width: 100%
+
+    input:first-child
+        margin-right: 8px
+
+    input + label
+        top: 8px
+        left: 24px
+
+    input + label.symbolLabel
+        left: calc(50% + 4px + 24px) !important
+
+.fileWrapper
+    background-color: #FFFFFF
+    border-radius: 24px
+    position: relative
+    width: 100%
+
+    input
+        opacity: 0
+
+    span
+        pointer-events: none
+        position: absolute
+        left: 24px
+        top: 36px
+        color: rgba(0,0,0,0.5)
+
+    a
+        width: calc(100% - 48px)
+        flex-direction: row !important
+        justify-content: space-between !important
+        font-size: 14px
+        padding: 16px 24px
+        border-top: 2px solid rgba(225,233,245,0.6)
+        color: #0077FF
+        font-weight: 500
+        font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+
+        &:hover > img,
+        &:focus > img,
+        &:focus-visible > img,
+        &:focus-within > img
+            transform: scale3d(1.2, 1.2, 1.2)
+            transition: all .2s
+
+        img
+            width: 16px
+            height: auto
+            transition: all .2s
+
+.submitCta
+    background-color: #0077FF
+    color: #FFF
+    padding: 24px
+    border-radius: 24px
+    font-weight: 600
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+    width: 100%
+    font-size: 16px
+    margin: 32px 0 0
+    transition: all .2s
+    height: 66px
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within
+        font-size: 18px
+        transition: all .2s
+
+@media screen and (min-width: 400px)
+    .form
+        max-width: 375px !important

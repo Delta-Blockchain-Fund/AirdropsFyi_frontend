@@ -1,0 +1,85 @@
+.wrapper
+    max-width: 320px !important
+    position: relative
+
+.form
+    position: relative
+    width: 100%
+
+.message
+    position: absolute
+    bottom: -50px
+    left: 50%
+    transform: translateX(-50%)
+    min-width: 200px
+    font-size: 12px
+    margin: 0
+
+.emojis
+    flex-direction: row !important
+
+.emoji
+    position: absolute
+    left: -9999px
+    top: -9999px
+    visibility: hidden
+    opacity: 0
+
+.notSelectedScore
+    font-size: 2.5rem
+    margin: 0 0.5rem
+    filter: grayscale(1)
+    transition: all .2s
+    cursor: pointer
+
+.selectedScore
+    font-size: 2.5rem
+    margin: 0 0.5rem
+    filter: grayscale(0)
+    transition: all .2s
+
+.textBox
+    background: #FFFFFF 0% 0% no-repeat padding-box
+    margin: 32px 16px 0
+    position: relative
+    width: 100%
+
+    label
+        font-family: Poppins, sans-serif
+        text-align: left
+        font-size: 14px
+        color: #000
+        background: rgba(0,0,0,0)
+        position: absolute
+        top: 16px
+        left: 24px
+
+    textarea
+        font-family: Poppins, sans-serif
+        text-align: left
+        font-size: 16px
+        letter-spacing: 0px
+        color: #000000
+        opacity: 0.5
+        outline: none
+        border: none
+        width: 100%
+        resize: none
+        background: rgba(0,0,0,0)
+        padding: 40px 24px
+        box-sizing: border-box
+        border: 1px solid rgba(0, 0, 0, 0.5)
+        border-radius: 24px
+
+        &::placeholder
+            color: rgba(0, 0, 0, 0.5)
+
+        &:focus,
+        &:focus-visible,
+        &:focus-within
+            border: 1px solid #0077FF
+
+        &:focus + label,
+        &:focus-visible + label,
+        &:focus-within + label
+            color: #0077FF
