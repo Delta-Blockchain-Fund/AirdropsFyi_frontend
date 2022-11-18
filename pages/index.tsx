@@ -21,24 +21,24 @@ const Home = ({ wallet, setWallet }: HomeProps) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/info/gallery-items`);
       const data = await res.json();
-      setGalleryItems(data);
+      setGalleryItems([data[1]]);
     } catch (e) {
       const gallery = [
-        {
-          image: '/iconEmails.svg',
-          title: 'Subscribe and Receive',
-          description: 'Airdrop release emails',
-        },
+        // {
+        //   image: '/iconEmails.svg',
+        //   title: 'Subscribe and Receive',
+        //   description: 'Airdrop release emails',
+        // },
         {
           image: '/iconAirdrops.svg',
           title: 'Many Airdrops & NFTs',
           description: 'Already registered in our platform',
         },
-        {
-          image: '/iconSubscribers.svg',
-          title: 'Thousands of people',
-          description: 'Already subscribed',
-        },
+        // {
+        //   image: '/iconSubscribers.svg',
+        //   title: 'Thousands of people',
+        //   description: 'Already subscribed',
+        // },
       ];
 
       setGalleryItems(gallery);
@@ -49,7 +49,6 @@ const Home = ({ wallet, setWallet }: HomeProps) => {
     if (window && window.matchMedia('(prefers-color-scheme: dark)')?.matches) {
       setAirdropSvg('/airdropSymbolWhite.svg');
     }
-
     loadGalleryItems();
   }, []);
 
@@ -67,7 +66,7 @@ const Home = ({ wallet, setWallet }: HomeProps) => {
         <h2 className={styles.subtitle}>Airdrop.fyi lets you search for airdrops that you may have missed.</h2>
         <SearchWallet wallet={wallet} setWallet={setWallet} />
         {/* Disabled this for time being */}
-        {/* <Gallery items={galleryItems} /> */}
+        <Gallery items={galleryItems} />
         <h3 className={styles.emailTitle}>Get Notified when you are eligible for an airdrop</h3>
         <EmailForm />
       </main>
