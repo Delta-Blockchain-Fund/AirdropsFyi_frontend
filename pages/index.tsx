@@ -56,7 +56,7 @@ const Home = ({ wallet, setWallet }: HomeProps) => {
   return (
     <div className={`${styles.container} home`}>
       <Head>
-        <title>airdrop by Delta Blockchain</title>
+        <title>Airdrops.fyi by Delta Blockchain Fund</title>
         <meta name='description' content='Delta fund airdrop tracker' />
         <link rel='icon' href={airdropSvg} />
       </Head>

@@ -53,7 +53,7 @@ const About = () => {
   return (
     <div className='about'>
       <Head>
-        <title>airdrop by Delta Blockchain</title>
+        <title>Airdrops.fyi by Delta Blockchain Fund</title>
         <meta name='description' content='Delta fund airdrop tracker' />
         <link rel='icon' href={airdropSvg} />
       </Head>
@@ -65,7 +65,13 @@ const About = () => {
           <h1 className={styles.title}>About us</h1>
           This is an open-source project developed by <a href='https://www.deltafund.io/'>Delta Blockchain Fund</a>. The
           project aims to help the community in finding and claiming the airdrops they are eligible for{' '}
-          <a href='https://github.com/Delta-Blockchain-Fund'>Github repository here</a>.
+          <a
+            style={{ display: 'inline', color: 'blue', textDecoration: 'underline' }}
+            href='https://github.com/Delta-Blockchain-Fund'
+          >
+            Github repository here
+          </a>
+          .
         </div>
         <div className={styles.howTo}>
           <h1 className={styles.title}>How to use Airdrop:</h1>
@@ -99,10 +105,16 @@ const About = () => {
         </div>
         <div className={styles.last}>
           <h2>We are excited to launch this non-profit project for the community.</h2>
-          <p>
+          <h2 style={{ display: 'inline' }}>
             The project is not maintained on a daily basis but we welcome everyone to contribute to it. If you have any
-            questions or would like to contribute please <a href='mailto:contactus@deltafund.io'>contact us</a>
-          </p>
+            questions or would like to contribute please{' '}
+            <a
+              style={{ display: 'inline', color: 'blue', textDecoration: 'underline' }}
+              href='mailto:contactus@deltafund.io'
+            >
+              contact us
+            </a>
+          </h2>
         </div>
       </main>
       <Footer></Footer>

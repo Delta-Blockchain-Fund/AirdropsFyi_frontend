@@ -1,11 +1,11 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import EmailForm from "../../components/EmailForm";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import SearchWallet from "../../components/SearchWallet";
-import styles from "../../styles/Claim.module.sass";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import EmailForm from '../../components/EmailForm';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import SearchWallet from '../../components/SearchWallet';
+import styles from '../../styles/Claim.module.sass';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -14,12 +14,7 @@ const AirdropListItem = (props: any) => {
   return (
     <div className={styles.airdropListItem}>
       <div>
-        <img
-          className={styles.airdropListItemImage}
-          src={image}
-          alt="Airdrop Token image"
-          width={100}
-        />
+        <img className={styles.airdropListItemImage} src={image} alt='Airdrop Token image' width={100} />
       </div>
       <div className={styles.airdropListItemInfo}>
         <h3>{name}</h3>
@@ -29,8 +24,8 @@ const AirdropListItem = (props: any) => {
         </div>
       </div>
       <div className={styles.airdropListItemLink}>
-        <a href={link} target="_blank" rel="noreferrer">
-          <img src="/iconExit.png" alt="Claim Tokens icon" />
+        <a href={link} target='_blank' rel='noreferrer'>
+          <img src='/iconExit.png' alt='Claim Tokens icon' />
         </a>
       </div>
     </div>
@@ -55,20 +50,14 @@ const AirdropList = (props: any) => {
   );
 };
 
-async function loadAirdropsToClaim(
-  setAirdropsToClaim: any,
-  wallet: string,
-  setIsLoading: any
-) {
+async function loadAirdropsToClaim(setAirdropsToClaim: any, wallet: string, setIsLoading: any) {
   if (wallet.length !== 42) {
     return;
   }
 
   setIsLoading(true);
 
-  const response = await fetch(`${BACKEND_URL}/airdrops/${wallet}`).catch((e) =>
-    console.error(e)
-  );
+  const response = await fetch(`${BACKEND_URL}/airdrops/${wallet}`).catch((e) => console.error(e));
 
   if (!response?.ok) {
     return;
@@ -94,16 +83,16 @@ async function loadAirdropsToClaim(
 
 const Claim = (props: any) => {
   const router = useRouter();
-  const [urlWallet, setUrlWallet] = useState("");
+  const [urlWallet, setUrlWallet] = useState('');
   const [airdropsToClaim, setAirdropsToClaim] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { email, setEmail, wallet, setWallet } = props;
 
-  const [airdropSvg, setAirdropSvg] = useState("/airdropSymbol.svg");
+  const [airdropSvg, setAirdropSvg] = useState('/airdropSymbol.svg');
 
   useEffect(() => {
-    if (window && window.matchMedia("(prefers-color-scheme: dark)")?.matches) {
-      setAirdropSvg("/airdropSymbolWhite.svg");
+    if (window && window.matchMedia('(prefers-color-scheme: dark)')?.matches) {
+      setAirdropSvg('/airdropSymbolWhite.svg');
     }
   }, []);
 
@@ -120,9 +109,9 @@ const Claim = (props: any) => {
   return (
     <div className={styles.claim}>
       <Head>
-        <title>airdrop by Delta Blockchain</title>
-        <meta name="description" content="Delta fund airdrop tracker" />
-        <link rel="icon" href={airdropSvg} />
+        <title>Airdrops.fyi by Delta Blockchain Fund</title>
+        <meta name='description' content='Delta fund airdrop tracker' />
+        <link rel='icon' href={airdropSvg} />
       </Head>
 
       <Header></Header>
@@ -134,16 +123,12 @@ const Claim = (props: any) => {
         ) : airdropsToClaim?.length > 0 ? (
           <h1 className={styles.title}>You have airdrops to claim!</h1>
         ) : (
-          <h1 className={styles.title}>
-            You don&apos;t have any airdrops to claim
-          </h1>
+          <h1 className={styles.title}>You don&apos;t have any airdrops to claim</h1>
         )}
 
         <AirdropList airdrops={airdropsToClaim} />
 
-        <h2 className={styles.receive}>
-          Receive notifications about New Airdrops in your email
-        </h2>
+        <h2 className={styles.receive}>Receive notifications about New Airdrops in your email</h2>
 
         <EmailForm />
       </main>
