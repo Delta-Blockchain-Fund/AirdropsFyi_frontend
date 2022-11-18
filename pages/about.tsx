@@ -106,6 +106,15 @@ const About = () => {
         <div className={styles.last}>
           <h2>We are excited to launch this non-profit project for the community.</h2>
           <h2 style={{ display: 'inline' }}>
+            For more information about the project please read our blog post{' '}
+            <a
+              style={{ display: 'inline', color: 'blue', textDecoration: 'underline' }}
+              href='https://www.deltafund.io/post/airdrops-fyi-check-eligible-airdrops'
+            >
+              here
+            </a>
+          </h2>
+          <h2 style={{ display: 'inline' }}>
             The project is not maintained on a daily basis but we welcome everyone to contribute to it. If you have any
             questions or would like to contribute please{' '}
             <a
