@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.sass';
 import EmailForm from '../components/EmailForm';
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import SearchWallet from '../components/SearchWallet';
+import Script from 'next/script';
 
 interface HomeProps {
   wallet: string;
@@ -53,26 +54,43 @@ const Home = ({ wallet, setWallet }: HomeProps) => {
   }, []);
 
   return (
-    <div className={`${styles.container} home`}>
-      <Head>
-        <title>Airdrops.fyi by Delta Blockchain Fund</title>
-        <meta name='description' content='Delta fund airdrop tracker' />
-        <link rel='icon' href={airdropSvg} />
-      </Head>
-      <Header />
+    <>
+      <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-HTY38FY4WB' />
+      <Script
+        id='google-analytics'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HTY38FY4WB', {
+            page_path: window.location.pathname,
+          });
+        `,
+        }}
+      />
+      <div className={`${styles.container} home`}>
+        <Head>
+          <title>Airdrops.fyi by Delta Blockchain Fund</title>
+          <meta name='description' content='Delta fund airdrop tracker' />
+          <link rel='icon' href={airdropSvg} />
+        </Head>
+        <Header />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Find Unclaimed Airdrops</h1>
-        <h2 className={styles.subtitle}>Airdrop.fyi lets you search for airdrops that you may have missed.</h2>
-        <SearchWallet wallet={wallet} setWallet={setWallet} />
-        {/* Disabled this for time being */}
-        <Gallery items={galleryItems} />
-        <h3 className={styles.emailTitle}>Get Notified when you are eligible for an airdrop</h3>
-        <EmailForm />
-      </main>
+        <main className={styles.main}>
+          <h1 className={styles.title}>Find Unclaimed Airdrops</h1>
+          <h2 className={styles.subtitle}>Airdrop.fyi lets you search for airdrops that you may have missed.</h2>
+          <SearchWallet wallet={wallet} setWallet={setWallet} />
+          {/* Disabled this for time being */}
+          <Gallery items={galleryItems} />
+          <h3 className={styles.emailTitle}>Get Notified when you are eligible for an airdrop</h3>
+          <EmailForm />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

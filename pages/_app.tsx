@@ -1,11 +1,12 @@
-import "../styles/globals.sass";
-import type { AppProps } from "next/app";
-import { useState } from "react";
+import '../styles/globals.sass';
+import type { AppProps } from 'next/app';
+import { useState } from 'react';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [email, setEmail] = useState("");
-  const [wallet, setWallet] = useState("");
-  const [walletForm, setWalletForm] = useState("");
+  const [email, setEmail] = useState('');
+  const [wallet, setWallet] = useState('');
+  const [walletForm, setWalletForm] = useState('');
 
   return (
     <Component
